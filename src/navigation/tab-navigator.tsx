@@ -6,7 +6,7 @@ import type { ComponentType } from 'react';
 import * as React from 'react';
 import type { SvgProps } from 'react-native-svg';
 
-import { Settings, Style } from '@/screens';
+import { Map, Notifications, Tasks } from '@/screens';
 import {
   colors,
   Feed as FeedIcon,
@@ -14,12 +14,10 @@ import {
   Style as StyleIcon,
 } from '@/ui';
 
-import { FeedNavigator } from './feed-navigator';
-
 type TabParamList = {
-  Style: undefined;
-  FeedNavigator: undefined;
-  Settings: undefined;
+  Tasks: undefined;
+  Map: undefined;
+  Notifications: undefined;
 };
 
 type TabType = {
@@ -35,9 +33,9 @@ type TabIconsType = {
 const Tab = createBottomTabNavigator<TabParamList>();
 
 const tabsIcons: TabIconsType = {
-  Style: (props: SvgProps) => <StyleIcon {...props} />,
-  FeedNavigator: (props: SvgProps) => <FeedIcon {...props} />,
-  Settings: (props: SvgProps) => <SettingsIcon {...props} />,
+  Tasks: (props: SvgProps) => <StyleIcon {...props} />,
+  Map: (props: SvgProps) => <FeedIcon {...props} />,
+  Notifications: (props: SvgProps) => <SettingsIcon {...props} />,
 };
 
 export type TabList<T extends keyof TabParamList> = {
@@ -47,19 +45,19 @@ export type TabList<T extends keyof TabParamList> = {
 
 const tabs: TabType[] = [
   {
-    name: 'Style',
-    component: Style,
-    label: 'Style',
+    name: 'Tasks',
+    component: Tasks,
+    label: 'Tasks',
   },
   {
-    name: 'FeedNavigator',
-    component: FeedNavigator,
-    label: 'Feed',
+    name: 'Map',
+    component: Map,
+    label: 'Map',
   },
   {
-    name: 'Settings',
-    component: Settings,
-    label: 'Settings',
+    name: 'Notifications',
+    component: Notifications,
+    label: 'Notifications',
   },
 ];
 

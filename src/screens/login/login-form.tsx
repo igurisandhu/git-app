@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import { zodResolver } from '@hookform/resolvers/zod';
 import React from 'react';
 import type { SubmitHandler } from 'react-hook-form';
@@ -20,15 +21,6 @@ const schema = z.object({
     .min(6, 'Password must be at least 6 characters'),
 });
 
-const style = {
-  animationImage: {
-    width: 350,
-    height: 350,
-    alignContent: 'center',
-    alignSelf: 'center',
-  },
-};
-
 export type FormType = z.infer<typeof schema>;
 
 export type LoginFormProps = {
@@ -47,7 +39,12 @@ export const LoginForm = ({ onSubmit = () => {} }: LoginFormProps) => {
       </Text>
 
       <Image
-        style={style.animationImage}
+        style={{
+          width: 350,
+          height: 350,
+          alignContent: 'center',
+          alignSelf: 'center',
+        }}
         source={require('../../../assets/images/animation.gif')}
       />
 
@@ -55,6 +52,7 @@ export const LoginForm = ({ onSubmit = () => {} }: LoginFormProps) => {
         testID="email-input"
         control={control}
         name="email"
+        placeholder="exapmle@example.com"
         label="Email"
       />
       <ControlledInput
